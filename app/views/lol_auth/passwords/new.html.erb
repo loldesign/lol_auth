@@ -1,0 +1,5 @@
+<% if @user.present? %>
+	<%= render partial: 'form' %>
+<% else %>
+	<%= render partial: 'token_expired' %>
+<% end %>

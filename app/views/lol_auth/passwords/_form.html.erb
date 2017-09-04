@@ -1,0 +1,31 @@
+<% if params[:notice].present? %>
+	<div class="alert alert-danger mt-5" role="alert">
+		<%= params[:notice] %>
+	</div>
+<% end %>
+
+<%= form_tag create_password_path do%>
+	<div class="card mt-5">
+		<div class="card-header">
+			Olá <%= @user.name %> - Troque sua Senha
+		</div>
+
+		<div class="card-body">
+			<div class="form-group">
+				<%= label_tag 'user[password]', 'Nova Senha' %>
+				<%= password_field_tag 'user[password]', '', class: "form-control" %>
+			</div>
+
+			<div class="form-group">
+				<%= label_tag 'user[password]', 'Confirme a Nova Senha' %>
+				<%= password_field_tag 'user[password_confirmation]', '', class: "form-control" %>
+			</div>
+
+			<%= hidden_field_tag 'token', params[:token] %>
+			<%= submit_tag 'Trocar Senha', class: "btn btn-primary" %>
+		</div>
+		<div class="card-footer text-muted">
+			 Loldesign - Recuperação de Senha
+		</div>
+	</div>
+<% end %>

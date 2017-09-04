@@ -1,0 +1,8 @@
+Description:
+    Init LolAuth to your project
+
+Example:
+    rails generate initializer
+
+    This will create:
+        config/facebook_app.yml

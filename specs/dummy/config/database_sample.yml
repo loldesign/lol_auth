@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  host:     localhost
+  username: user
+  password: pass
+  encoding: utf8
+  min_messages: warning
+  pool: 2
+  timeout: 5000
+
+development:
+  <<: *default
+  database: lol_auth_development
+
+test: &test
+  <<: *default
+  database: lol_auth_test
+
+production:
+  <<: *default
+  database: lol_auth_production
+
+cucumber:
+  <<: *test
