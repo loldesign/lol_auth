@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency "paranoia", "~> 2.2"
   s.add_dependency "pg", "0.18.4"
   s.add_dependency "jbuilder", '~> 2.6.3'
-  s.add_dependency "koala", '~> 2.2'
   s.add_dependency "carrierwave", '~> 1.0'
   s.add_dependency "fog", '~> 1.38'
   s.add_dependency "mini_magick"
