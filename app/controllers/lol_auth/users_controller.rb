@@ -14,4 +14,17 @@ module LolAuth
       render :success, status: 201
 	 end
   end
+
+  def update_avatar
+    @user = current_user
+    @user.avatar = avatar_params[:avatar]
+
+    if @user.save
+      UserStateManager.new(user: @user).process
+
+      render :success, status: 201
+    else
+      render :fail, status: 422
+    end
+  end
 end
