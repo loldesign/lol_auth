@@ -19,3 +19,4 @@ pickle-email-*.html
 specs/dummy/config/facebook_app.yml
 specs/dummy/config/database.yml
 *.gem
+*.log
