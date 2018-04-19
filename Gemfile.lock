@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lol_auth (0.1.0)
+    lol_auth (0.1.2)
       carrierwave (~> 1.0)
       devise_token_auth (~> 0.1)
       fog (~> 1.38)
@@ -10,7 +10,7 @@ PATH
       mini_magick
       omniauth (~> 1.6)
       paranoia (~> 2.2)
-      pg (= 0.18.4)
+      pg (>= 0.18)
       rails (~> 5.0)
 
 GEM
@@ -259,7 +259,7 @@ GEM
     orm_adapter (0.5.0)
     paranoia (2.3.1)
       activerecord (>= 4.0, < 5.2)
-    pg (0.18.4)
+    pg (1.0.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
