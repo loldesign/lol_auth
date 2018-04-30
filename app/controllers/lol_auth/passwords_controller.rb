@@ -4,6 +4,8 @@ module LolAuth
   class PasswordsController < ApplicationController
     include Rails.application.routes.url_helpers
 
+    skip_before_action :authenticate_api_v1_user!, only: [:new, :create, :complete_password]
+
   	before_action :load_user, except: [:complete_password]
 
   	def new
