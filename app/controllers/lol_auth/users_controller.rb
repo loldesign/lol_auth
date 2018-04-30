@@ -2,6 +2,8 @@ require_dependency "lol_auth/application_controller"
 
 module LolAuth
   class UsersController < ApplicationController
+    skip_before_action :authenticate_api_v1_user!, only: [:facebook_signin]
+
     def facebook_signin
   		@manager = Facebook::Login.new()
 
