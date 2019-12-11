@@ -17,7 +17,7 @@ module LolAuth
 	  end
 
     def apple_signin
-      @manager = Apple::Login.new(params[:resource])
+      @manager = Apple::Login.new(params)
 
       @user = @manager.process()
 
