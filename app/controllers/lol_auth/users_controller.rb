@@ -14,7 +14,19 @@ module LolAuth
   		response.headers.merge!(@manager.auth_header)
 
       render :success, status: 201
-	 end
+	  end
+
+    def apple_signin
+      @manager = Apple::Login.new()
+
+      @user = @manager.process(params[:resource])
+
+      sign_in(:user, @user, store: false, bypass: true)
+
+      response.headers.merge!(@manager.auth_header)
+
+      render :success, status: 201
+    end
   end
 
   def update_avatar

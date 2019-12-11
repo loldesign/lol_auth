@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
 			# USER SIGNUP FACEBOOK
 			post '/users/facebook/signin', to: '/lol_auth/users#facebook_signin'
+			# USER SIGNUP APPLE
+			post '/users/apple/signin'   , to: '/lol_auth/users#apple_signin'
 		end
 	end
 end
