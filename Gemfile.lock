@@ -86,7 +86,7 @@ GEM
     dry-inflector (0.2.0)
     erubi (1.9.0)
     eventmachine (1.0.9.1)
-    excon (0.70.0)
+    excon (0.71.0)
     faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     fission (0.5.0)
