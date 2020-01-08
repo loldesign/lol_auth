@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 			post '/users/facebook/signin', to: '/lol_auth/users#facebook_signin'
 			# USER SIGNUP APPLE
 			post '/users/apple/signin'   , to: '/lol_auth/users#apple_signin'
+			# USER SIGNUP GOOGLE
+			post '/users/google/signin'   , to: '/lol_auth/users#google_signin'
 		end
 	end
 end

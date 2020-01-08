@@ -2,7 +2,7 @@ require_dependency "lol_auth/application_controller"
 
 module LolAuth
   class UsersController < ApplicationController
-    skip_before_action :authenticate_api_v1_user!, only: [:facebook_signin, :apple_signin]
+    skip_before_action :authenticate_api_v1_user!, only: [:facebook_signin, :apple_signin, :google_signin]
 
     def facebook_signin
   		@manager = Facebook::Login.new()
@@ -18,6 +18,18 @@ module LolAuth
 
     def apple_signin
       @manager = Apple::Login.new(params)
+
+      @user = @manager.process()
+
+      sign_in(:user, @user, store: false, bypass: true)
+
+      response.headers.merge!(@manager.auth_header)
+
+      render :success, status: 201
+    end
+
+    def google_signin
+      @manager = Google::Login.new(params)
 
       @user = @manager.process()
 
