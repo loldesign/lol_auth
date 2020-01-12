@@ -9,7 +9,7 @@ module LolAuth
 
       @user = @manager.login_with_token(params[:token])
 
-      if @user
+      if @user.present?
         sign_in(:user, @user, store: false, bypass: true)
 
     		response.headers.merge!(@manager.auth_header)
@@ -25,7 +25,7 @@ module LolAuth
 
       @user = @manager.process()
 
-      if @user
+      if @user.present?
         sign_in(:user, @user, store: false, bypass: true)
 
         response.headers.merge!(@manager.auth_header)
@@ -41,7 +41,7 @@ module LolAuth
 
       @user = @manager.process()
 
-      if @user
+      if @user.present?
         sign_in(:user, @user, store: false, bypass: true)
 
         response.headers.merge!(@manager.auth_header)
