@@ -9,11 +9,15 @@ module LolAuth
 
       @user = @manager.login_with_token(params[:token])
 
-      sign_in(:user, @user, store: false, bypass: true)
+      if @user
+        sign_in(:user, @user, store: false, bypass: true)
 
-  		response.headers.merge!(@manager.auth_header)
+    		response.headers.merge!(@manager.auth_header)
 
-      render :success, status: 201
+        render :success, status: 201
+      else
+        render :error, status: 422
+      end
 	  end
 
     def apple_signin
@@ -21,11 +25,15 @@ module LolAuth
 
       @user = @manager.process()
 
-      sign_in(:user, @user, store: false, bypass: true)
+      if @user
+        sign_in(:user, @user, store: false, bypass: true)
 
-      response.headers.merge!(@manager.auth_header)
+        response.headers.merge!(@manager.auth_header)
 
-      render :success, status: 201
+        render :success, status: 201
+      else
+        render :error, status: 422
+      end
     end
 
     def google_signin
@@ -33,11 +41,15 @@ module LolAuth
 
       @user = @manager.process()
 
-      sign_in(:user, @user, store: false, bypass: true)
+      if @user
+        sign_in(:user, @user, store: false, bypass: true)
 
-      response.headers.merge!(@manager.auth_header)
+        response.headers.merge!(@manager.auth_header)
 
-      render :success, status: 201
+        render :success, status: 201
+      else
+        render :error, status: 422
+      end
     end
   end
 

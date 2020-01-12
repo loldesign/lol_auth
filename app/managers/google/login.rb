@@ -9,6 +9,8 @@ module Google
     end
 
     def process
+      return false if @user_type.constantize.where(email: @info['email']).where.not(provider: :google).count > 0
+
       user = @user_type.constantize.find_or_create_by(uid: @info['user']['id']) do |user|
                user.email             = @info['user']['email']
                user.password          = build_pasword()

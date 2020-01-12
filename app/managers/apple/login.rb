@@ -9,6 +9,8 @@ module Apple
     end
 
     def process
+      return false if @user_type.constantize.where(email: @info['email']).where.not(provider: :apple).count > 0
+
       user = @user_type.constantize.find_or_create_by(uid: @info['email']) do |user|
                user.email    = @info['email']
                user.password = build_pasword()

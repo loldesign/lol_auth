@@ -9,6 +9,8 @@ module Facebook
     end
 
     def login_with_token(token)
+      return false if @user_type.constantize.where(email: @info['email']).where.not(provider: :facebook).count > 0
+
       @graph = Koala::Facebook::API.new(token)
 
       get_info()
