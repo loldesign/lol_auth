@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lol_auth (0.1.14)
+    lol_auth (0.1.15)
       carrierwave (~> 1.0)
       devise_token_auth (~> 1.1)
       fog (~> 1.38)
